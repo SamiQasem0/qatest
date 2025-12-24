@@ -8,9 +8,7 @@ export class PriceRangePage {
     }
 
     async movePriceRange() {
-        // أول نقطة (الحد الأدنى)
         const minSlider = this.page.locator('.ngx-slider-pointer').first();
-        // ثاني نقطة (الحد الأعلى)
         const maxSlider = this.page.locator('.ngx-slider-pointer').nth(1);
 
         const minBox = await minSlider.boundingBox();
@@ -20,7 +18,6 @@ export class PriceRangePage {
             throw new Error('Slider not found');
         }
 
-        // حرك الحد الأدنى لليمين
         await this.page.mouse.move(
             minBox.x + minBox.width / 2,
             minBox.y + minBox.height / 2
@@ -29,7 +26,6 @@ export class PriceRangePage {
         await this.page.mouse.move(minBox.x + 80, minBox.y);
         await this.page.mouse.up();
 
-        // حرك الحد الأعلى لليسار
         await this.page.mouse.move(
             maxBox.x + maxBox.width / 2,
             maxBox.y + maxBox.height / 2

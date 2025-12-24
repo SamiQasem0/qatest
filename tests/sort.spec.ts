@@ -2,7 +2,6 @@ import { test } from '@playwright/test';
 import { SortPage } from '../pages/SortPage';
 
 test.describe('Sort', () => {
-
     test.beforeEach(async ({ page }) => {
         await page.goto('https://practicesoftwaretesting.com/');
     });
